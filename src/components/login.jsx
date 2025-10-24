@@ -105,7 +105,7 @@ const CustomDivider = styled(Divider)(({ theme }) => ({
   },
 }));
 
-const Login = ({ onSwitchToSignup, onSwitchToResetPassword }) => {
+const Login = ({ onSwitchToSignup, onSwitchToResetPassword, onLoginSuccess }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -113,6 +113,14 @@ const Login = ({ onSwitchToSignup, onSwitchToResetPassword }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Login attempt:', { email, password });
+    
+    // Simulate successful login
+    if (email && password) {
+      alert('Login successful!');
+      onLoginSuccess(); // This will now navigate to /dashboard
+    } else {
+      alert('Please enter email and password');
+    }
   };
 
   const handleGoogleLogin = () => {

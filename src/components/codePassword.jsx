@@ -74,7 +74,7 @@ const InfoAlert = styled(Alert)(({ theme }) => ({
   },
 }));
 
-const CodePassword = ({ onBackToLogin }) => {
+const CodePassword = ({ onBackToLogin, onSwitchToNewPassword }) => {
   const [code, setCode] = useState('');
 
   const handleSubmit = (e) => {
@@ -82,6 +82,8 @@ const CodePassword = ({ onBackToLogin }) => {
     console.log('Code verification attempt:', { code });
     // Here you would typically verify the code
     alert('Code verified! Redirecting to new password form...');
+    // Navigate to new password step
+    onSwitchToNewPassword();
   };
 
   return (
