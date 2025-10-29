@@ -13,12 +13,17 @@ import { styled } from '@mui/material/styles';
 // Custom styled components
 const SidebarContainer = styled(Box)(({ theme }) => ({
   width: '231px', // Fixed width
-  height: '100vh',
+  height: 'calc(100vh - 64px)', // Adjust for header height
+  position: 'fixed', // Added fixed position
+  top: '64px', // Start below the header
+  left: 0, // Stick to the left
   backgroundColor: '#ffffff', // white background
   padding: theme.spacing(2),
   display: 'flex',
   flexDirection: 'column',
   borderRight: '1px solid #e0e0e0', // Subtle vertical border line
+  zIndex: 1000, // Lower than header
+  overflowY: 'auto', // Allow scrolling if content is too tall
 }));
 
 const SidebarItem = styled(ListItemButton)(({ theme, active }) => ({

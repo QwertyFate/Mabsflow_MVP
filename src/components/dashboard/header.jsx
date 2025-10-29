@@ -29,6 +29,11 @@ const HeaderContainer = styled(Box)(({ theme }) => ({
   alignItems: 'center',
   padding: theme.spacing(0, 3),
   justifyContent: 'space-between',
+  position: 'fixed', // Add fixed positioning
+  top: 0, // Stick to the top
+  left: 0, // Start from the left edge
+  right: 0, // Extend to the right edge
+  zIndex: 2000, // Higher than sidebar's z-index
 }));
 
 const LeftSection = styled(Box)(({ theme }) => ({
