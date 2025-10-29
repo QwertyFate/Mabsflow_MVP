@@ -12,6 +12,7 @@ import {
   Link,
   Paper,
   Stack,
+  Alert,
 } from '@mui/material';
 import {
   Visibility,
@@ -105,7 +106,30 @@ const CustomDivider = styled(Divider)(({ theme }) => ({
   },
 }));
 
-const Signup = ({ onSwitchToLogin }) => {
+const InfoAlert = styled(Alert)(({ theme }) => ({
+  backgroundColor: '#f5f5f0', // Light beige background
+  border: 'none',
+  borderRadius: theme.spacing(1),
+  padding: theme.spacing(1.5),
+  marginBottom: theme.spacing(2),
+  '& .MuiAlert-icon': {
+    color: '#666',
+    fontSize: '1.2rem',
+    backgroundColor: '#666',
+    borderRadius: '50%',
+    width: '20px',
+    height: '20px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginRight: theme.spacing(1),
+  },
+  '& .MuiAlert-message': {
+    padding: 0,
+  },
+}));
+
+const Signup = ({ onSwitchToLogin, onSwitchToEmailConfirmation }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -120,6 +144,8 @@ const Signup = ({ onSwitchToLogin }) => {
       return;
     }
     console.log('Signup attempt:', { email, password, licenseToken }); // Include licenseToken
+    // Navigate to email confirmation step
+    onSwitchToEmailConfirmation(email);
   };
 
   const handleGoogleLogin = () => {

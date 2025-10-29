@@ -1,16 +1,18 @@
-import * as React from 'react';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
+import React from 'react';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import Authentication from './pages/authentication';
+import ProjectDashboard from './pages/projectDashboard';
+import MainDashboard from './pages/mainDashboard';
 
 function App() {
   return (
-    <Container maxWidth="sm" padding={2} style={{backgroundColor: 'red', textAlign: 'center', marginTop: '2rem', marginBottom: '2rem' , padding: '2rem' }}>
-      <Typography variant="h4" gutterBottom>
-        Welcome to My MUI React App
-      </Typography>
-      <Button variant="contained">Click Me</Button>
-    </Container>
+    <Routes>
+      <Route path="/" element={<Navigate to="/auth" replace />} />
+      <Route path="/auth" element={<Authentication />} />
+      <Route path="/dashboard" element={<ProjectDashboard />} />
+      <Route path="/main" element={<MainDashboard />} />
+      <Route path="*" element={<Navigate to="/auth" replace />} />
+    </Routes>
   );
 }
 
