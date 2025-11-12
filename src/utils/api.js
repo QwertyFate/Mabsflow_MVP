@@ -1,5 +1,5 @@
 // API Configuration
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://your-backend-url.com/api';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://mabsflowautomation-backend.onrender.com';
 
 const getAuthToken = () => localStorage.getItem('authToken') || '';
 
